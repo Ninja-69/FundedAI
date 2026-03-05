@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&family=JetBrains+Mono:wght@600&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary-bg: #000000;
+  --color-surface: #0B0B0B;
+  --color-accent: #FFFFFF;
+  --color-secondary-neutral: #888888;
+  --color-profit: #10B981;
+  --color-loss: #FF4D4D;
+  --color-warning: #FFCC00;
+
+  --radius-glass: 16px;
+  --radius-glass-lg: 24px;
+}
+
+@layer base {
+  body {
+    @apply bg-primary-bg text-accent font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[rgba(11,11,11,0.65)] backdrop-blur-[20px] saturate-[180%] border border-[rgba(255,255,255,0.08)] rounded-glass shadow-[0_20px_50px_rgba(0,0,0,0.5)];
+  }
+
+  .glass-card-lg {
+    @apply bg-[rgba(11,11,11,0.65)] backdrop-blur-[20px] saturate-[180%] border border-[rgba(255,255,255,0.08)] rounded-glass-lg shadow-[0_20px_50px_rgba(0,0,0,0.5)];
+  }
+
+  .btn-primary {
+    @apply relative px-8 py-3 bg-gradient-to-r from-[#10B981] to-[#059669] text-white font-display font-bold rounded-full border border-[rgba(255,255,255,0.1)] shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply relative px-8 py-3 bg-transparent text-white font-display font-bold rounded-full border border-[rgba(255,255,255,0.1)] shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-white/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-300;
+  }
+
+  .heading-gradient {
+    @apply bg-gradient-to-b from-white to-[#E0E0E0] bg-clip-text text-transparent;
+  }
+
+  .mesh-gradient {
+    background: radial-gradient(at top left, #0B0B0B 0%, transparent 50%),
+                radial-gradient(at center, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
+                #000000;
+  }
+}
